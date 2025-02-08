@@ -1,0 +1,93 @@
+{% include 'vendor_header.html' %} {% if a %}
+
+<center>
+    <br /><br />
+    <h1>Update Equipment</h1>
+    <br /><br />
+    <form method="post">
+        <table>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" name="name" value="{{a.name}}" class="form-control"  /></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+
+                <td><textarea name="des" id="" cols="30" rows="10" class="form-control" >{{a.description}}</textarea></td>
+            </tr>
+            <tr>
+                <th>Price Per Day</th>
+                <td><input type="number" name="ppd" value="{{a.price_per_day}}" class="form-control"  /></td>
+            </tr>
+            <tr>
+                <td><br /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Update" class="btn btn-success" name="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+<br />
+{% else %}
+
+<center>
+    <h1>Manage Equipment</h1>
+    <br />
+    <form method="post">
+        <table>
+            <tr>
+                <th style="color: black">Name :</th>
+                <td><input type="text" name="name" placeholder="Name" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th style="color: black">Description</th>
+                <td><textarea name="des" id="" cols="30" placeholder="Description" rows="10" class="form-control" ></textarea></td>
+            </tr>
+            <tr>
+                <th style="color: black">Price Per Day</th>
+                <td><input type="number" name="ppd" placeholder="Price Per Day" class="form-control"  /></td>
+            </tr>
+            <tr>
+                <td><br /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Submit" class="btn btn-success" name="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+<center>
+    <style>
+        th {
+            color: aliceblue;
+        }
+    </style>
+    <br /><br />
+    <h1>View Equipments</h1>
+    <table class="table table-striped" style="width: 1200px">
+        <tr style="background-color: rgb(19, 21, 54)">
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price Per day</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for i in q %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.description}}</td>
+
+            <td>{{i.price_per_day}}</td>
+            <td><a href="/update_eq/{{i.pk}}" class="btn btn-success">Update</a></td>
+            <td><a href="/delete_eq/{{i.pk}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</center>
+{% endif %} {% include 'footer.html' %}

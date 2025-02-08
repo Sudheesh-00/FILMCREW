@@ -1,0 +1,35 @@
+{% include 'admin_header.html' %} <br /><br /><br />
+
+<center>
+    <style>
+        th {
+            color: aliceblue;
+        }
+    </style>
+    <h1>View Review</h1>
+    <table class="table table-striped" style="width: 1200px">
+        <tr style="background-color: rgb(19, 21, 54)">
+            <th>Vendor Name</th>
+            <th>Review</th>
+            <th>Rating</th>
+            <th>User Name</th>
+            <th>Date</th>
+        </tr>
+        {% for i in q %}
+
+        <tr>
+            <td>{{i.vendor.name}}</td>
+            <td>{{i.description}}</td>
+
+            <td>{{i.rate}}</td>
+
+            <td>{{i.user.name}}</td>
+            <td>{{i.date}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</center>
+<br /><br /><br />
+
+{% include 'footer.html' %}

@@ -1,0 +1,41 @@
+{% include 'admin_header.html' %} <br /><br /><br />
+
+<center>
+    <style>
+        th {
+            color: aliceblue;
+        }
+    </style>
+    <h1>View Complaint</h1>
+    <table class="table table-striped" style="width: 1200px">
+        <tr style="background-color: rgb(19, 21, 54)">
+            <th>User</th>
+            <th>Complaint</th>
+            <th>Reply</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+        {% for i in q %}
+
+        <tr>
+            <td>{{i.user.name}}</td>
+
+            <td>{{i.complaint}}</td>
+
+            <td>{{i.reply}}</td>
+
+            <td>{{i.date}}</td>
+
+            {% if i.reply == 'pending' %}
+
+            <td><a href="reply/{{i.pk}}" class="btn btn-success">Reply </a></td>
+
+            {% endif %}
+        </tr>
+
+        {% endfor %}
+    </table>
+</center>
+<br /><br /><br />
+
+{% include 'footer.html' %}

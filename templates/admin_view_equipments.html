@@ -1,0 +1,25 @@
+{% include 'admin_header.html' %}
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price Per day</th>
+    </tr>
+    {% for i in q %}
+    <tr>
+
+        <td>{{i.name}}</td>
+    <td>{{i.description}}</td>
+
+    <td>{{i.price_per_day}}</td>
+  
+    </tr>
+    
+
+    {% endfor  %}
+
+</table>
+
+
+{% include 'footer.html' %}

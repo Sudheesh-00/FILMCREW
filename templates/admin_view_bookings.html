@@ -1,0 +1,33 @@
+{% include 'admin_header.html' %} <br /><br /><br />
+<center>
+    <style>
+        th {
+            color: aliceblue;
+        }
+    </style>
+    <h1>View Booking</h1>
+    <table class="table table-striped" style="width: 1200px">
+        <tr style="background-color: rgb(19, 21, 54)">
+            <th>Booking Date</th>
+            <th>Return Date</th>
+            <th>Equipment</th>
+            <th>User Name</th>
+            <th>User Phone</th>
+        </tr>
+        {% for i in q %}
+
+        <tr>
+            <td>{{i.book_date}}</td>
+
+            <td>{{i.return_date}}</td>
+
+            <td>{{i.equipment.name}}</td>
+            <td>{{i.user.name}}</td>
+            <td>{{i.user.phone}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+<br /><br /><br />
+
+{% include 'footer.html' %}
